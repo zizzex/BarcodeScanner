@@ -37,18 +37,18 @@ open class BarcodeScannerViewController: UIViewController {
   // MARK: - Public properties
 
   /// Delegate to handle the captured code.
-  public weak var codeDelegate: BarcodeScannerCodeDelegate?
+  @objc public weak var codeDelegate: BarcodeScannerCodeDelegate?
   /// Delegate to report errors.
-  public weak var errorDelegate: BarcodeScannerErrorDelegate?
+  @objc public weak var errorDelegate: BarcodeScannerErrorDelegate?
   /// Delegate to dismiss barcode scanner when the close button has been pressed.
-  public weak var dismissalDelegate: BarcodeScannerDismissalDelegate?
+  @objc public weak var dismissalDelegate: BarcodeScannerDismissalDelegate?
 
   /// When the flag is set to `true` controller returns a captured code
   /// and waits for the next reset action.
-  public var isOneTimeSearch = true
+  @objc public var isOneTimeSearch = true
 
   /// `AVCaptureMetadataOutput` metadata object types.
-  public var metadata = AVMetadataObject.ObjectType.barcodeScannerMetadata {
+  @objc public var metadata = AVMetadataObject.ObjectType.barcodeScannerMetadata {
     didSet {
       cameraViewController.metadata = metadata
     }
@@ -66,11 +66,11 @@ open class BarcodeScannerViewController: UIViewController {
   // MARK: - UI
 
   // Title label and close button.
-  public private(set) lazy var headerViewController: HeaderViewController = .init()
+  @objc public private(set) lazy var headerViewController: HeaderViewController = .init()
   /// Information view with description label.
-  public private(set) lazy var messageViewController: MessageViewController = .init()
+  @objc public private(set) lazy var messageViewController: MessageViewController = .init()
   /// Camera view with custom buttons.
-  public private(set) lazy var cameraViewController: CameraViewController = .init()
+  @objc public private(set) lazy var cameraViewController: CameraViewController = .init()
 
   // Constraints that are activated when the view is used as a footer.
   private lazy var collapsedConstraints: [NSLayoutConstraint] = self.makeCollapsedConstraints()
@@ -122,7 +122,7 @@ open class BarcodeScannerViewController: UIViewController {
    Shows error message and goes back to the scanning mode.
    - Parameter errorMessage: Error message that overrides the message from the config.
    */
-  public func resetWithError(message: String? = nil) {
+  @objc public func resetWithError(message: String? = nil) {
     status = Status(state: .notFound, text: message)
   }
 
@@ -130,7 +130,7 @@ open class BarcodeScannerViewController: UIViewController {
    Resets the controller to the scanning mode.
    - Parameter animated: Flag to show scanner with or without animation.
    */
-  public func reset(animated: Bool = true) {
+  @objc public func reset(animated: Bool = true) {
     status = Status(state: .scanning, animated: animated)
   }
 
