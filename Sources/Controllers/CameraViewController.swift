@@ -19,7 +19,7 @@ public final class CameraViewController: UIViewController {
 
   /// Focus view type.
   public var barCodeFocusViewType: FocusViewType = .animated
-  public var showsCameraButton: Bool = false {
+  @objc public var showsCameraButton: Bool = false {
     didSet {
       cameraButton.isHidden = showsCameraButton
     }

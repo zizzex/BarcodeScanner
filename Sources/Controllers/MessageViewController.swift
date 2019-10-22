@@ -3,20 +3,20 @@ import UIKit
 /// View controller used for showing info text and loading animation.
 public final class MessageViewController: UIViewController {
   // Image tint color for all the states, except for `.notFound`.
-  public var regularTintColor: UIColor = .black
+  @objc public var regularTintColor: UIColor = .black
   // Image tint color for `.notFound` state.
-  public var errorTintColor: UIColor = .red
+  @objc public var errorTintColor: UIColor = .red
   // Customizable state messages.
-  public var messages = StateMessageProvider()
+    public var messages = StateMessageProvider()
 
   // MARK: - UI properties
 
   /// Text label.
-  public private(set) lazy var textLabel: UILabel = self.makeTextLabel()
+  @objc public private(set) lazy var textLabel: UILabel = self.makeTextLabel()
   /// Info image view.
-  public private(set) lazy var imageView: UIImageView = self.makeImageView()
+  @objc public private(set) lazy var imageView: UIImageView = self.makeImageView()
   /// Border view.
-  public private(set) lazy var borderView: UIView = self.makeBorderView()
+  @objc public private(set) lazy var borderView: UIView = self.makeBorderView()
 
   /// Blur effect view.
   private lazy var blurView: UIVisualEffectView = .init(effect: UIBlurEffect(style: .extraLight))
